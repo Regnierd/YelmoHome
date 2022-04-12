@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'yelmohome_cliente'`, () => {
+  it(`should have as title 'Yelmohome_cliente'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('yelmohome_cliente');
+    expect(app.title).toEqual('Yelmohome_cliente');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('yelmohome_cliente app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('Yelmohome_cliente app is running!');
   });
 });

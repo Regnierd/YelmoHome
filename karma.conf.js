@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/yelmohome_cliente'),
+      dir: require('path').join(__dirname, './coverage/yelmohome-cliente'),
       subdir: '.',
       reporters: [
         { type: 'html' },
