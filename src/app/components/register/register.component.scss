@@ -17,31 +17,38 @@ header{
         padding-left: 15px;
         margin-right: auto;
         margin-left: auto;
+        
     }
     
     .row{
         margin-right: -15px;
         margin-left: -15;
+        
     }
     
     .wrap{
         width: 100%;
         background: rgb(54, 52, 52);
-        border-radius: 5px;
+        border-radius: 10px;
         box-shadow: 0 0 20px black;
+        
     }
+    
     .img{
         background: url("https://isquad.tv/wp-content/uploads/2018/08/Netflix-Background.jpg") no-repeat;
         background-size: cover;
         background-position: center center;
+        width: 40%;
     }
-    .img, .login-wrap{
-        width: 50%;
+
+    .login-wrap{
+        width: 60%;
     }
     
     .form-group{
         position: relative;
     }
+
     .form-group .label{
         font-size: 12px;
         text-transform: uppercase;
@@ -57,6 +64,10 @@ header{
         border-radius: 5px;
         box-shadow: none;
         border:1px solid rgba(0,0,0,.1);
+    }
+
+    .input-avatar{
+        height: 40px;
     }
     
     .btn{
