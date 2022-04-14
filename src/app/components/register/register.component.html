@@ -12,22 +12,22 @@
                         <form action="" method="post" class="sign-form">
                             <div class="form-group mb-3">
                                 <label for="name" class="label">Username</label>
-                                <input type="text" class="form-control" name="name" placeholder="Username" required>
+                                <input type="text" class="form-control" name="name" placeholder="Username" required #name>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="name" class="label">Password</label>
-                                <input type="text" class="form-control" name="password" placeholder="Password" required>
+                                <input type="text" class="form-control" name="password" placeholder="Password" required #password>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="name" class="label">Email</label>
-                                <input type="email" class="form-control" name="email" placeholder="Email" required>
+                                <input type="email" class="form-control" name="email" placeholder="Email" required #email>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="avatar" class="label">Avatar</label>
-                                <input type="file" class="form-control input-avatar" name="avatar">
+                                <input type="file" class="form-control input-avatar" name="avatar" #file>
                             </div>
                             <div class="form-group mb-3 py-2">                               
-                                <button class="form-control btn btn-primary rounded submit px-3" type="submit" name="registrar">Sign Up</button>
+                                <button (click)="register(name.value, password.value, email.value, file.value)" class="form-control btn btn-primary rounded submit px-3" type="submit" name="registrar">Sign Up</button>
                             </div>
                         </form>
                         <div class="border border-secondary"></div>
