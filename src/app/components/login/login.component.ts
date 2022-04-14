@@ -42,6 +42,10 @@ export class LoginComponent implements OnInit {
         this.user.password = password;
         this.user.email = email;
         this.user.fileName = fileName;
+
+        /*
+        crear session localstorage if datos != null else mensaje "no existe el usuario"
+        */
       })
 
   };
