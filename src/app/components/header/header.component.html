@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark p-md-3 fixed-top" onmouseover="cambiarFondo(this)" onmouseout="normalFondo(this)">
+<nav class="navbar navbar-expand-lg navbar-dark p-md-3 fixed-top" (scroll)="onScroll()" [ngClass]="navbarfixed?'fixed':'nofixed'">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.html">
             <img class="img-fluid" src="../../../assets/Yelmo_Home_Transparente.png" alt="" width="150" height="150">
@@ -56,3 +56,4 @@
         </div>
     </div>
 </nav>
+

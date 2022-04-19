@@ -22,15 +22,18 @@ export class RegisterComponent implements OnInit {
 
   register(name_user:string, password:string, email:string, fileName:string){
     this.connectionServerService.register(name_user, password, email, fileName).subscribe((datos:any) => {
-      console.log(datos);
+      
       if(datos["resultado"] == "OK"){
-        alert(datos["menssage"]);
+        alert(datos["menssage"]);//placeholder
       }
-
-      if (datos) {
-        this.router.navigate(['']);
+      if(datos["resultado"] == "NO"){
+        alert(datos["menssage"]);//placeholder
       }
-    })
+      
+    }) 
+         
+    this.router.navigate(['/login']);  
+   
   }
   
 

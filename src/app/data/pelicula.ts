@@ -7,7 +7,7 @@ export class Film{
     img: string;
     premiere: string;
     video: string;
-
+    category: string;
     constructor(){
         this.id_film = 0;
         this.title = "";
@@ -17,5 +17,6 @@ export class Film{
         this.img = "";
         this.premiere = "";
         this.video = "";
+        this.category = "";
     }
 }

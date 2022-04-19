@@ -1,2 +1,23 @@
-<!--<app-header></app-header>-->
-<h1>LOGUEADO!</h1>
+<app-header></app-header>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner tamanioCarousel">      
+            <div class="carousel-item" *ngFor="let category of categories | slice:0:3;let index = index;let isFirst = first" [ngClass]="{active:isFirst}">
+                <img src="{{category.films[0].img}}" class="d-block w-100 imagenTamanio" alt="...">
+            </div>          
+    </div>
+</div>
+<div class="container-fluid bg-dark">
+    <div class="row" *ngFor="let category of categories">
+        <div class="col-lg-3 mt-5 ms-5 text-light">
+            <h4>{{category.name_category}}</h4>
+        </div>
+        <div class="row">
+            <div class="col-lg-2 mt-3 ms-5" *ngFor="let film of category.films">
+                <div class="card border-0">
+                    <img src="{{film.img}}" alt="" class="card-img-top"  height="180px"
+                    width="210px">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

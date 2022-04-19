@@ -31,23 +31,30 @@ export class LoginComponent implements OnInit {
   login(name_user: string, password: string) {
     this.connectionServerService.login(name_user, password).subscribe((datos:any) => {
         console.log(datos);
-        let id = datos["id_user"];
-        let name_user = datos["name_user"];
-        let password = datos["password"];
-        let email = datos["email"];
-        let fileName = datos["fileName"];
+        if(datos["resultado"] == "NO"){
+          alert(datos["menssage"]);
+        }else{
+          let id = datos["id_user"];
+          let name_user = datos["name_user"];
+          let password = datos["password"];
+          let email = datos["email"];
+          let fileName = datos["fileName"];
+  
+          this.user.id_user = id;
+          this.user.name_user = name_user;
+          this.user.password = password;
+          this.user.email = email;
+          this.user.fileName = fileName;
 
-        this.user.id_user = id;
-        this.user.name_user = name_user;
-        this.user.password = password;
-        this.user.email = email;
-        this.user.fileName = fileName;
-
+          this.router.navigate(['/home']);  
+        }
+      
         /*
         crear session localstorage if datos != null else mensaje "no existe el usuario"
         */
       })
 
   };
+  
   
 }
