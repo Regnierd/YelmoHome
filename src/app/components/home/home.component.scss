@@ -1,3 +1,4 @@
+
 .tamanioCarousel{
     height: 800px;
 }
@@ -10,5 +11,80 @@
    
 }
 
+
+.carouselTamanioCard{
+    height: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.slider-izquierda{
+    width: 70px;
+    height: 180px;
+    
+}
+
+.slider-derecha{
+    width: 70px;
+    height: 180px;
+    
+}
+
+.slider-izquierda:hover{
+    background-image: linear-gradient(to right, #121314, transparent);
+    opacity: 0.6;
+    
+}
+
+.slider-derecha:hover{
+    background-image: linear-gradient(to right, transparent, #121314);
+    opacity: 0.6;
+    
+}
+
+.icon-prev{
+    margin-top: 100%;
+}
+
+.icon-next{
+    margin-top: 100%;
+}
+.card{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .icon-play{
+        position: absolute;
+        display: none;
+        .social-icon{
+            background: transparent;
+            font-size: 70px;
+
+            fa-icon{
+                color:rgba(255, 255, 255, 0.589) !important;
+              
+            }   
+        }
+    }
+
+}
+.card:hover{
+    transform: scale(1.2);
+    transition: transform 0.5s;
+    z-index: 1;
+    cursor: pointer;
+
+    .icon-play{
+        display: block;
+        
+        fa-icon:hover{
+            color:rgb(255, 255, 255) !important;
+
+        }
+    }
+
+    
+}
 
 

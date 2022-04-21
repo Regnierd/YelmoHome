@@ -118,8 +118,12 @@ header{
         background-color: rgb(65, 211, 255);
         box-shadow: 0 0 20px rgb(65, 211, 255);
     }
-    
     .social-icon:hover:nth-child(3){
+        background: linear-gradient(to top right, rgb(255, 190, 68),rgb(248, 122, 191));
+        box-shadow: 0 0 20px rgb(255, 190, 68);
+        ;
+    }
+    .social-icon:hover:nth-child(4){
         background-color: rgb(230, 54, 54);
         box-shadow: 0 0 20px rgb(230, 54, 54);
     }

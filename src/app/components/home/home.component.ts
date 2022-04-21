@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { faPlayCircle } from '@fortawesome/free-regular-svg-icons';
+
 import { Category } from 'src/app/data/category';
 import { Film } from 'src/app/data/pelicula';
 import { ConnectionServerService } from 'src/app/services/connection-server.service';
@@ -9,7 +11,7 @@ import { ConnectionServerService } from 'src/app/services/connection-server.serv
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  faPlayCircle = faPlayCircle;
   constructor(public connectionServerService:ConnectionServerService) { }
 
   categories: Category[] = this.connectionServerService.category;
