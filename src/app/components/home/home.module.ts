@@ -4,6 +4,7 @@ import { HeaderModule } from '../header/header.module';
 import { HomeComponent } from './home.component';
 import { FooterModule } from '../footer/footer.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CommonModule,
     HeaderModule,
     FooterModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    AppRoutingModule
   ],
   exports:[HomeComponent]
 })

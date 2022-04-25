@@ -4,7 +4,7 @@ import { LoginModule } from './login/login.module';
 import { RegisterModule } from './register/register.module';
 import { ModalModule } from './modal/modal.module';
 import { HomeModule } from './home/home.module';
-
+import { FilmPlayerModule } from './film-player/film-player.module';
 
 @NgModule({
   declarations: [],
@@ -13,7 +13,8 @@ import { HomeModule } from './home/home.module';
     LoginModule,
     RegisterModule,
     ModalModule,
-    HomeModule
+    HomeModule,
+    FilmPlayerModule,
     
   ],
   

@@ -21,8 +21,8 @@
                             <div class="col-lg-2 card-film" *ngFor="let film of category.films | slice:0:6;">
                                 <div class="card border-0 bg-transparent">
                                     <img src="{{film.img}}" alt="" class="card-img-top" height="180px" width="210px">
-                                    <div class="icon-play">
-                                        <a class="social-icon" href="#"><fa-icon [icon]="faPlayCircle"></fa-icon></a>
+                                    <div class="icon-play" routerLink="/player-film/{{film.id_film}}" routerLinkActive="active">
+                                        <a class="social-icon" ><fa-icon [icon]="faPlayCircle"></fa-icon></a>
                                     </div>
             
                                 </div>
