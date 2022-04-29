@@ -17,12 +17,6 @@
                 <li class="nav-item" id="peliculas">
                     <a class="nav-link active" href="#">Peliculas</a>
                 </li>
-                <li class="nav-item" id="series">
-                    <a class="nav-link active" href="#">Series</a>
-                </li>
-                <li class="nav-item" id="favoritas">
-                    <a class="nav-link active" href="#">Favoritas</a>
-                </li>
             </ul>
             <form class="d-flex flex-lg-row flex-column">
                 <button type="button" class=" boton mt-2 notifications-menu position-relative me-4">
@@ -48,7 +42,17 @@
                 <div class="account">
                     <a class="avatar">
                         <span class="profile-link">
-                            <img class="profile-icon" src="../../../assets/avatar.png" alt="">
+                            <div class="btn-group">
+                                <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img class="profile-icon" src="../../../assets/avatar.png" alt="">
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                  <li><button class="dropdown-item" type="button"><fa-icon class="icon-navbar" [icon]="faUser"></fa-icon><span routerLink="/profile" routerLinkActive="active">Profile</span> </button></li>
+                                  <li><button class="dropdown-item" type="button"><fa-icon class="icon-navbar" [icon]="faArrowRightFromBracket"></fa-icon><span>Log Out</span></button></li>
+                                  
+                                </ul>
+                              </div>
+                            
                         </span>
                     </a>
                 </div>

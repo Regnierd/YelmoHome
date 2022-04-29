@@ -29,11 +29,6 @@ export class FilmPlayerComponent implements OnInit {
     
   }
 
-  expandirTexto2(){
-    console.log(this.expandirTexto);
-    this.expandirTexto = true;
-  }
-
   /**
    * Metodo que llama a la funcion getPelicula del servicio
    */

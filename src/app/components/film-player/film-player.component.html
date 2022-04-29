@@ -13,7 +13,7 @@
                         <div class="description mt-3">
                             <strong>Descripción:</strong>
                             <span class="ms-2" *ngIf="expandirTexto == false">{{selectedFilm.description.substring(0, 300)}}</span>
-                            <span class="expandirTexto" *ngIf="expandirTexto == false && selectedFilm.description.length > 300; else sinopsis" (click)="expandirTexto2()"> ...Leer más</span>
+                            <span class="expandirTexto" *ngIf="expandirTexto == false && selectedFilm.description.length > 300; else sinopsis" (click)="expandirTexto = true"> ...Leer más</span>
                         </div> 
                     </div>
                     
@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="col-lg-7 container-iframe">
-            <iframe [src]="selectedFilm.video | safe" width="566px" height="600px" allowfullscreen></iframe>
+            <iframe [src]="selectedFilm.video" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
     

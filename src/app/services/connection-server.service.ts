@@ -45,10 +45,6 @@ export class ConnectionServerService {
 
   }
 
-
-
-
-
   login(name_user: string, password: string) {
     return this.httpClient.post(`${this.url}loginControllerUser.php`, JSON.stringify({ "name_user": name_user, "password": password }));
       
@@ -56,6 +52,10 @@ export class ConnectionServerService {
 
   register(name_user:string, password: string, email:string, fileName:string){
     return this.httpClient.post(`${this.url}insertControllerUser.php`, JSON.stringify({"name_user":name_user, "password": password, "email":email, "fileName":fileName}));
+  }
+
+  update(id_user:number, name_user:string, password:string, email:string, fileName:string){
+    return this.httpClient.post(`${this.url}updateControllerUser.php`, JSON.stringify({"id_user":id_user, "name_user":name_user, "password": password, "email":email, "fileName":fileName}));
   }
 
   /**

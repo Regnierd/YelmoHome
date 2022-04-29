@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { faUser, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -6,7 +7,8 @@ import { Component, HostListener, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  faUser = faUser;
+  faArrowRightFromBracket = faArrowRightFromBracket;
   constructor() { }
 
   ngOnInit(): void {
@@ -23,5 +25,6 @@ export class HeaderComponent implements OnInit {
       this.navbarfixed = false;
     }
   }
+
 
 }

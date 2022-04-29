@@ -1,39 +1,82 @@
-.notifications-menu{
+.notifications-menu {
     background-color: transparent;
     border: none;
-    
+
 }
 
-.profile-icon{
+.profile-icon {
     width: 35px;
     height: 35px;
     border-radius: 5px;
 }
 
-.search{
+.search {
     box-shadow: none;
-    border:1px solid rgba(0,0,0,.1);
+    border: 1px solid rgba(0, 0, 0, .1);
 }
 
-.fixed{
+.fixed {
     width: 100%;
     transition: 0.2s linear;
     top: 0px;
     background-color: #343a40;
 }
 
-.nofixed{
+.nofixed {
     transition: 0.2s linear;
-    background-color: transparent ;
+    background-color: transparent;
 }
 
-nav:hover{
+nav:hover {
     background-color: #343a40;
 }
 
+.dropdown-toggle {
+    color: white;
+    background: transparent;
+    border: none;
+
+}
+
+.dropdown-menu {
+    margin-top: 15px;
+    background-color: rgba(0, 0, 0, 0.911);
+    border: 1px solid grey;
+
+    li:nth-child(1) {
+        border-bottom: 1px solid grey;
+    }
+
+    li {
+
+        button {
+            color: white;
+            margin-left: 15px;
+            padding: 5px;
+            width: 100px;
+
+            .icon-navbar {
+                margin-right: 10px;
+                color: white;
+                font-size: 20px;
+            }
+
+            span {
+
+                &:hover {
+                    border-bottom: 1px solid white;
+                }
+            }
+        }
+
+        button:hover {
+            background: none;
+
+        }
+    }
 
 
 
 
 
-
+}
