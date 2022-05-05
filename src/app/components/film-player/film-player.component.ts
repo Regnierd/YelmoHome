@@ -17,7 +17,7 @@ export class FilmPlayerComponent implements OnInit {
   categories: Category[] = this.connectionServerService.category
   selectedFilm: Film = this.connectionServerService.selectedFilm;
   urlFilm: string = this.selectedFilm.video;
-  expandirTexto = false;
+  expandirTexto:boolean = false;
 
   ngOnInit(): void {
     

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { faFacebookF, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { User } from 'src/app/data/user';
 import { ConnectionServerService } from 'src/app/services/connection-server.service';
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   faYoutube = faYoutube;
   faTwitter = faTwitter;
   faInstagram = faInstagram;
-  user: User = new User();
+  @Input() user: User = new User();
 
   constructor(public connectionServerService:ConnectionServerService, private router: Router) {
 
@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
 
   login(name_user: string, password: string) {
     this.connectionServerService.login(name_user, password).subscribe((datos:any) => {
-        console.log(datos);
         if(datos["resultado"] == "NO"){
           alert(datos["menssage"]);
         }else{
@@ -49,12 +48,14 @@ export class LoginComponent implements OnInit {
 
           this.router.navigate(['/home']);  
         }
-      
+        
         /*
         crear session localstorage if datos != null else mensaje "no existe el usuario"
         */
       })
-
+      this.connectionServerService.disparadorPerfil.emit({
+        data:this.user
+      });
   };
   
   

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Film } from '../data/pelicula';
 import { UserJson } from '../data/user-json';
@@ -12,7 +12,7 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class ConnectionServerService {
-
+  @Output() disparadorPerfil: EventEmitter<any> = new EventEmitter();
   constructor(private httpClient: HttpClient) {
     this.getFilms();
   }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/data/user';
 import { ConnectionServerService } from 'src/app/services/connection-server.service';
+import { LoginComponent } from '../login/login.component';
 
 
 @Component({
@@ -11,9 +13,12 @@ import { ConnectionServerService } from 'src/app/services/connection-server.serv
 export class ProfileComponent implements OnInit {
   //TRAER DEL COMPONENTE LOGIN EL USUARIO
   //Y TRABAJAR CON EL USUARIO DESDE EL COMPONENTE PROFILE
-  constructor(private connectionServerService:ConnectionServerService, private router: Router) { }
+  constructor(private connectionServerService:ConnectionServerService, private router: Router) {}
 
   ngOnInit(): void {
+    this.connectionServerService.disparadorPerfil.subscribe(data =>{
+      console.log("Recibiendo...",data);
+    });
   }
 
   update(id_user:number, name_user:string, password:string, email:string, fileName:string){
