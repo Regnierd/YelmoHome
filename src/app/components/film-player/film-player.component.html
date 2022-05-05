@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="col-lg-7 container-iframe">
-            <iframe src="{{selectedFilm.video | safe}}" frameBorder="0"
+            <iframe [src]="urlFilm" frameBorder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
         </div>
@@ -31,7 +31,9 @@
 </div>
 
 <ng-template #sinopsis>
-    <span class="ms-2">{{selectedFilm.description}}</span>
-    <span class="expandirTexto" *ngIf="selectedFilm.description.length > 300" (click)="expandirTexto = false"> ...Leer
-        menos</span>
+    <ng-container *ngIf="expandirTexto == true && selectedFilm.description.length > 300">
+        <span class="ms-2">{{selectedFilm.description}}</span>
+        <span class="expandirTexto" (click)="expandirTexto = false"> ...Leer
+            menos</span>
+    </ng-container>
 </ng-template>
