@@ -1,37 +1,55 @@
-.contenedor{
-
-    iframe{
-        width: 100%;
-        height: 50vh;     
+app-header {
+    .navbar {
+        background-color: red !important;
     }
 
-    .card{
+    .nofixed {
+        transition: 0.2s linear;
+        background-color: #343a40 !important;
+    }
+
+    nav:hover {
+        background-color: #343a40 !important;
+    }
+}
+
+.contenedor {
+    margin-top: 80px;
+
+    iframe {
+        width: 100%;
+        height: 50vh;
+    }
+
+    .card {
         width: 500px;
         height: 700px;
         font-size: medium;
-        
-        .card-body{
+
+        .card-body {
             padding: 20px;
 
-            .card-img-top{
+            .card-img-top {
                 width: 450px;
-                height: 230px;            
+                height: 230px;
             }
-            .card-title{
+
+            .card-title {
                 margin-top: 15px;
             }
-            strong{
+
+            strong {
                 font-size: 20px;
             }
 
-            .sinopsis{
-                font-size:18px
+            .sinopsis {
+                font-size: 18px
             }
 
-            .expandirTexto{
+            .expandirTexto {
                 color: rgb(56, 156, 250);
-                cursor:pointer;
-                font-size:18px;
+                cursor: pointer;
+                font-size: 18px;
             }
 
         }
