@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faUser, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -9,7 +10,7 @@ import { faUser, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-ico
 export class HeaderComponent implements OnInit {
   faUser = faUser;
   faArrowRightFromBracket = faArrowRightFromBracket;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +25,16 @@ export class HeaderComponent implements OnInit {
 
       this.navbarfixed = false;
     }
+  }
+
+  /**
+   * Funcion que cierra sesión del usuario y redirige al login
+   */
+  closeSession(){
+    if(localStorage!=null){
+      localStorage.removeItem("user");
+    }
+    this.router.navigate(['/login']);
   }
 
 

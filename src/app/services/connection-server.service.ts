@@ -1,10 +1,10 @@
-import { Injectable, Output, EventEmitter } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Film } from '../data/pelicula';
-import { UserJson } from '../data/user-json';
 import { Category } from '../data/category';
-import { faGrinTongueSquint } from '@fortawesome/free-regular-svg-icons';
 import { Observable, of } from 'rxjs';
+import { User } from '../data/user';
+import { Router } from '@angular/router';
 
 
 
@@ -12,8 +12,8 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class ConnectionServerService {
-  @Output() disparadorPerfil: EventEmitter<any> = new EventEmitter();
-  constructor(private httpClient: HttpClient) {
+  
+  constructor(private httpClient: HttpClient, private router: Router) {
     this.getFilms();
   }
 
@@ -21,6 +21,8 @@ export class ConnectionServerService {
   selectedFilm: Film = new Film();
   film: Film = new Film();
   filmsArray: Film[] = [];
+  user: User = new User();
+  
 
   url = "http://localhost/PHP/yelmohome_servidor/controlador/";
   
@@ -46,8 +48,33 @@ export class ConnectionServerService {
   }
 
   login(name_user: string, password: string) {
-    return this.httpClient.post(`${this.url}loginControllerUser.php`, JSON.stringify({ "name_user": name_user, "password": password }));
-      
+    return this.httpClient.post(`${this.url}loginControllerUser.php`, JSON.stringify({ "name_user": name_user, "password": password }))
+    .subscribe((datos:any) => {
+      if(datos["resultado"] == "NO"){
+        alert(datos["menssage"]);
+      }else{
+        let id = datos["id_user"];
+        let name_user = datos["name_user"];
+        let password = datos["password"];
+        let email = datos["email"];
+        let fileName = datos["fileName"];
+
+        this.user.id_user = id;
+        this.user.name_user = name_user;
+        this.user.password = password;
+        this.user.email = email;
+        this.user.fileName = fileName;
+        console.log(this.user);
+        this.router.navigate(['/home']);  
+      }
+
+      if(this.user != null) {
+          localStorage.setItem("user", JSON.stringify(this.user));
+         
+      }
+
+    });
+    
   }
 
   register(name_user:string, password: string, email:string, fileName:string){
@@ -66,7 +93,6 @@ export class ConnectionServerService {
    getPelicula(id: number): Observable<Film> {
     
     const pelicula = this.filmsArray.find(h => h.id_film == id);
-    console.log(pelicula);
     if(pelicula == undefined){
       return new Observable<Film>();
     }

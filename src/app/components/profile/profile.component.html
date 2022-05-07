@@ -5,27 +5,27 @@
                 <h2 class="title-profile">Tú perfil</h2>
                 <div class="border"></div>
                 <div class="container-profile">
-                    <!-- <form action="" method="post" class="sign-form"> 
+                    <form action="" method="post" class="sign-form"> 
                         <div class="form-group mb-3">
                             <label for="name" class="label">Username</label>
-                            <input type="text" class="form-control" name="name" placeholder="{{user.name_user}}" #name>
+                            <input type="text" class="form-control" name="name" placeholder="{{userLogged.name_user}}" #name>
                         </div>
                         <div class="form-group mb-3">
                             <label for="name" class="label">Password</label>
-                            <input type="text" class="form-control" name="password" placeholder="{{user.password}}" #password>
+                            <input type="text" class="form-control" name="password" placeholder="{{userLogged.password}}" #password>
                         </div>
                         <div class="form-group mb-3">
                             <label for="name" class="label">Email</label>
-                            <input type="email" class="form-control" name="email" placeholder="{{user.email}}" #email>
+                            <input type="email" class="form-control" name="email" placeholder="{{userLogged.email}}" #email>
                         </div>
                         <div class="form-group mb-3">
                             <label for="avatar" class="label">Avatar</label>
-                            <input type="file" class="form-control input-avatar" name="{{user.fileName}}" #file>
+                            <input type="file" class="form-control input-avatar" name="{{userLogged.fileName}}" #file>
                         </div>
                         <div class="form-group mb-3 py-2">                               
-                            <button (click)="update(user.id_user, name.value, password.value, email.value, file.value)" class="form-control btn btn-primary rounded submit px-3" type="submit" name="registrar">Update</button>
+                            <button (click)="update(name.value, password.value, email.value, file.value)" class="form-control btn btn-primary rounded submit px-3" type="submit" name="registrar">Update</button>
                         </div>
-                    </form>-->
+                    </form>
                 </div>
             </div>
         </div>

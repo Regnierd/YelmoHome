@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/data/user';
 import { ConnectionServerService } from 'src/app/services/connection-server.service';
-import { LoginComponent } from '../login/login.component';
 
 
 @Component({
@@ -11,27 +10,38 @@ import { LoginComponent } from '../login/login.component';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  //TRAER DEL COMPONENTE LOGIN EL USUARIO
-  //Y TRABAJAR CON EL USUARIO DESDE EL COMPONENTE PROFILE
+  
+  
   constructor(private connectionServerService:ConnectionServerService, private router: Router) {}
+  //userLogged: User = this.connectionServerService.user;
+  userLogged: User = JSON.parse(localStorage.getItem("user") || "{}") ;
 
   ngOnInit(): void {
-    this.connectionServerService.disparadorPerfil.subscribe(data =>{
-      console.log("Recibiendo...",data);
-    });
+    
   }
 
-  update(id_user:number, name_user:string, password:string, email:string, fileName:string){
-    //Controlar que los campos string no sean vacios
-    //Si son vacios se les asigna los valores del usuario antiguo
-    this.connectionServerService.update(id_user, name_user, password, email, fileName).subscribe((datos:any) => {
-      if(datos["resultado"] == "OK"){
-        alert(datos["menssage"]);//placeholder
-      }
-      if(datos["resultado"] == "NO"){
-        alert(datos["menssage"]);//placeholder
-      }
-    })
+  update(name_user:string, password:string, email:string, fileName:string){
+    if(name_user == ""){
+      name_user = this.userLogged.name_user;
+    }
+    if(password == ""){
+      password = this.userLogged.password;
+    }
+    if(email == ""){
+      email = this.userLogged.email;
+    }
+
+    if(this.userLogged){
+      this.connectionServerService.update(this.userLogged.id_user, name_user, password, email, fileName).subscribe((datos:any) => {
+        this.userLogged.name_user = datos["name_user"];
+        this.userLogged.password = datos["password"];
+        this.userLogged.email = datos["email"];
+        localStorage.setItem("user", JSON.stringify(this.userLogged));
+      })
+    }
+    
+    
+    
     this.router.navigate(['/home']);
   }
 
