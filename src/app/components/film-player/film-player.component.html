@@ -2,7 +2,7 @@
 
 <div class="container-fluid contenedor" *ngIf="selectedFilm">
     <div class="row">
-        <div class="col-lg-5">
+        <div class="col-xs-12 col-lg-5 container-info-film">
             <div class="card bg-transparent text-light border-0">
                 <div class="card-body">
                     <img src="{{selectedFilm.img}}" class="card-img-top" />
@@ -23,7 +23,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-7 container-iframe">
+        <div class="col-xs-12 col-lg-7 container-iframe">
             <iframe [src]="urlFilm" frameBorder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
@@ -33,9 +33,11 @@
 </div>
 
 <ng-template #sinopsis>
-    <ng-container *ngIf="expandirTexto == true && selectedFilm.description.length > 300">
+    <ng-container  *ngIf="expandirTexto == true && selectedFilm.description.length > 300">
         <span class="ms-2">{{selectedFilm.description}}</span>
         <span class="expandirTexto" (click)="expandirTexto = false"> ...Leer
             menos</span>
     </ng-container>
 </ng-template>
+
+<app-footer></app-footer>

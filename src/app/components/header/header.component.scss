@@ -1,14 +1,13 @@
-.notifications-menu {
-    background-color: transparent;
-    border: none;
-
-}
-
 .profile-icon {
     width: 35px;
     height: 35px;
     border-radius: 5px;
 }
+.nav-link{
+    font-size: 17px;
+    font-weight: 600;
+}
+
 
 .search {
     box-shadow: none;
@@ -74,9 +73,60 @@ nav:hover {
 
         }
     }
+}
 
+// xxs - super extra small devices (portrait phones)
+@media (min-width: 0px) and (max-width: 359.98px) {
+    .search{
+        width: 50% !important;
+        margin-bottom: 15px;
+    }
 
+    .account{
+        display: flex;
+        justify-content: end;
+    }
+    
 
+}
 
+// xs - extra small devices (portrait phones)
+@media (min-width: 360px) and (max-width: 575.98px) {
+    .search{
+        width: 50% !important;
+        margin-bottom: 15px;
+    }
 
+    .account{
+        display: flex;
+        justify-content: end;
+    }
+
+}
+
+// sm - small devices (landscape phones)
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .search{
+        width: 50% !important;
+        margin-bottom: 15px;
+    }
+
+    .account{
+        display: flex;
+        justify-content: end;
+    }
+
+}
+
+// md - medium devices (tablets)
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .search{
+        width: 50% !important;
+        margin-bottom: 15px;
+    }
+
+    .account{
+        display: flex;
+        justify-content: end;
+    }
 }

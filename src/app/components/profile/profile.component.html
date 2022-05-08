@@ -1,9 +1,10 @@
+<app-header></app-header>
 <div class="container-fluid">
     <div class="row">
-        <div class="col">
-            <div class="container">
+        <div class="col column">
+            <div class="profile">
                 <h2 class="title-profile">Tú perfil</h2>
-                <div class="border"></div>
+                <div class="border mb-4"></div>
                 <div class="container-profile">
                     <form action="" method="post" class="sign-form"> 
                         <div class="form-group mb-3">
@@ -12,7 +13,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="name" class="label">Password</label>
-                            <input type="text" class="form-control" name="password" placeholder="{{userLogged.password}}" #password>
+                            <input type="password" class="form-control" name="password" placeholder="{{userLogged.password | asterisk}}" #password>
                         </div>
                         <div class="form-group mb-3">
                             <label for="name" class="label">Email</label>
@@ -22,8 +23,8 @@
                             <label for="avatar" class="label">Avatar</label>
                             <input type="file" class="form-control input-avatar" name="{{userLogged.fileName}}" #file>
                         </div>
-                        <div class="form-group mb-3 py-2">                               
-                            <button (click)="update(name.value, password.value, email.value, file.value)" class="form-control btn btn-primary rounded submit px-3" type="submit" name="registrar">Update</button>
+                        <div class="form-group button mb-3 py-2">                               
+                            <button (click)="update(name.value, password.value, email.value, file.value)" class="form-control btn rounded submit px-3" type="submit" name="registrar">Update</button>
                         </div>
                     </form>
                 </div>
@@ -31,3 +32,4 @@
         </div>
     </div>
 </div>
+<app-footer></app-footer>

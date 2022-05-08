@@ -1,38 +1,29 @@
-app-header {
-    .navbar {
-        background-color: red !important;
-    }
-
-    .nofixed {
-        transition: 0.2s linear;
-        background-color: #343a40 !important;
-    }
-
-    nav:hover {
-        background-color: #343a40 !important;
-    }
-}
-
 .contenedor {
-    margin-top: 80px;
+    margin-top: 100px;
+
+    .container-info-film{
+        margin-bottom: 270px;
+        
+    }
+
+    .container-iframe{
+        margin-top: 20px;
+        display:flex;
+        justify-content: center;
+    }
 
     iframe {
-        width: 100%;
+        width: 70%;
         height: 50vh;
+        
     }
 
-    .card {
-        width: 500px;
-        height: 700px;
+    .card { 
+        margin: auto;
         font-size: medium;
-
+     
         .card-body {
             padding: 20px;
-
-            .card-img-top {
-                width: 450px;
-                height: 230px;
-            }
 
             .card-title {
                 margin-top: 15px;
@@ -53,5 +44,143 @@ app-header {
             }
 
         }
+    }
+}
+// xxs - super extra small devices (portrait phones)
+@media (min-width: 0px) and (max-width: 359.98px) {
+    .container-info-film{
+        margin-bottom: 10px !important;
+        
+    }
+    .card{
+        width: 100% !important;
+        
+        .card-body{
+            .card-img-top {
+                width: 100% !important;
+                
+            }
+        }
+        
+    }
+    .container-iframe{
+        display:flex;
+        justify-content: center;
+        margin-bottom: 30px;
+        width: 100%;
+    }
+    
+}
+
+// xs - extra small devices (portrait phones)
+@media (min-width: 360px) and (max-width: 575.98px) {
+    .container-info-film{
+        margin-bottom: 10px !important;
+        
+    }
+    .card{
+        width: 100% !important;
+        
+        .card-body{
+            .card-img-top {
+                width: 100% !important;
+                
+            }
+        }
+        
+    }
+    .container-iframe{
+        display:flex;
+        justify-content: center;
+        margin-bottom: 30px;
+        width: 100%;
+    }
+
+}
+
+// sm - small devices (landscape phones)
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .container-info-film{
+        margin-bottom: 10px !important;
+        
+    }
+    .card{
+        width: 100% !important;
+        .card-body{
+            .card-img-top {
+                display: flex;
+                margin: auto;
+                width: 80% !important;
+                height: 60vh;
+            }
+        }
+        
+    }
+    .container-iframe{
+        display:flex;
+        justify-content: center;
+        margin-bottom: 30px;
+        width: 100%;
+    }
+
+
+}
+
+// md - medium devices (tablets)
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .container-info-film{
+        margin-bottom: 10px !important;
+        
+    }
+    .card{
+        width: 100% !important;
+        
+        .card-body{
+            .card-img-top {
+                display: flex;
+                margin: auto;
+                width: 80% !important;
+                height: 60vh;
+            }
+        }
+        
+    }
+    .container-iframe{
+        display:flex;
+        justify-content: center;
+        margin-bottom: 30px;
+        width: 100%;
+    }
+
+
+}
+
+// lg - large devices (desktops)
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .card{
+        width: 500px !important;
+        height: 700px !important;
+        .card-body{
+            .card-img-top {
+                width: 450px !important;
+                height: 430px !important;
+            }
+        }
+        
+    }
+
+}
+
+@media (min-width:1200px){
+    .card{
+        width: 500px !important;
+        height: 700px !important;
+        .card-body{
+            .card-img-top {
+                width: 450px !important;
+                height: 430px !important;
+            }
+        }
+        
     }
 }
