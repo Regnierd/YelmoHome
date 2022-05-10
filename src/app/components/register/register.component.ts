@@ -18,6 +18,9 @@ export class RegisterComponent implements OnInit {
   faTwitter= faTwitter;
   faInstagram = faInstagram;
   ngOnInit(): void {
+    if(localStorage.getItem("user") != null){
+      this.router.navigate(['/home']);  
+    }
   }
 
   register(name_user:string, password:string, email:string, fileName:string){

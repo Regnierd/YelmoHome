@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 import { faFacebookF, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { User } from 'src/app/data/user';
 import { ConnectionServerService } from 'src/app/services/connection-server.service';
@@ -18,12 +19,14 @@ export class LoginComponent implements OnInit {
   faInstagram = faInstagram;
   user: User = new User();
 
-  constructor(public connectionServerService:ConnectionServerService) {
-
+  constructor(public connectionServerService:ConnectionServerService, private router: Router) {
+    
   }
 
   ngOnInit(): void {
-
+    if(localStorage.getItem("user") != null){
+      this.router.navigate(['/home']);  
+    }
   }
   
 
@@ -31,6 +34,7 @@ export class LoginComponent implements OnInit {
     this.connectionServerService.login(name_user, password);
       
   }
+  
   
   
 }

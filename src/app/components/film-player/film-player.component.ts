@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/data/category';
 import { Film } from 'src/app/data/pelicula';
 import { ConnectionServerService } from 'src/app/services/connection-server.service';
@@ -13,7 +13,7 @@ import { ConnectionServerService } from 'src/app/services/connection-server.serv
 })
 export class FilmPlayerComponent implements OnInit {
 
-  constructor(public connectionServerService:ConnectionServerService, private route: ActivatedRoute, private domSanitizer: DomSanitizer) { }
+  constructor(public connectionServerService:ConnectionServerService, private route: ActivatedRoute, private domSanitizer: DomSanitizer, private router: Router) { }
 
   categories: Category[] = this.connectionServerService.category
   selectedFilm: Film = this.connectionServerService.selectedFilm;
@@ -23,7 +23,9 @@ export class FilmPlayerComponent implements OnInit {
   expandirTexto:boolean = false;
 
   ngOnInit(): void {
-    
+    if(localStorage.getItem("user") == null){
+      this.router.navigate(['/login']);  
+    }
   }
 
   //Metodo que detecta cambios en la funcion que se llama.
