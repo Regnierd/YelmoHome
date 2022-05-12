@@ -85,6 +85,10 @@ export class ConnectionServerService {
     return this.httpClient.post(`${this.url}updateControllerUser.php`, JSON.stringify({"id_user":id_user, "name_user":name_user, "password": password, "email":email, "fileName":fileName}));
   }
 
+  updateFilm(id_film:number,title:string, author:string, description:string, rating:number, img:string, premiere:string, video:string){
+    return this.httpClient.post(`${this.url}updateControllerFilm.php`, JSON.stringify({"id_film":id_film, "title":title, "author": author, "description":description, "rating":rating, "img":img, "premiere":premiere, "video":video}));
+  }
+
   /**
    * Funcion que obtiene la pelicula por la id de la pelicula seleccionada
    * @param id de la pelicula

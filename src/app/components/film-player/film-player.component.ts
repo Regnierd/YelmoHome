@@ -3,6 +3,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/data/category';
 import { Film } from 'src/app/data/pelicula';
+import { User } from 'src/app/data/user';
 import { ConnectionServerService } from 'src/app/services/connection-server.service';
 
 
@@ -15,13 +16,12 @@ export class FilmPlayerComponent implements OnInit {
 
   constructor(public connectionServerService:ConnectionServerService, private route: ActivatedRoute, private domSanitizer: DomSanitizer, private router: Router) { }
 
-  categories: Category[] = this.connectionServerService.category
   selectedFilm: Film = this.connectionServerService.selectedFilm;
   urlFilm: SafeResourceUrl = this.domSanitizer.bypassSecurityTrustResourceUrl("");
-  
-//  urlFilm: string = this.selectedFilm.video;
+  admin: User = JSON.parse(localStorage.getItem("user") || "{}") ;
   expandirTexto:boolean = false;
-
+  edit:boolean = false;
+  
   ngOnInit(): void {
     if(localStorage.getItem("user") == null){
       this.router.navigate(['/login']);  
@@ -31,8 +31,11 @@ export class FilmPlayerComponent implements OnInit {
   //Metodo que detecta cambios en la funcion que se llama.
   ngDoCheck(): void{
     this.getPelicula();
+
+    if(this.admin.name_user == "admin"){
+      this.edit = true;
+    }
     
-    console.log(this.selectedFilm.video);
   }
 
   /**

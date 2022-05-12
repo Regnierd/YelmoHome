@@ -13,7 +13,7 @@ export class ProfileComponent implements OnInit {
   
   
   constructor(private connectionServerService:ConnectionServerService, private router: Router) {}
-  //userLogged: User = this.connectionServerService.user;
+  
   userLogged: User = JSON.parse(localStorage.getItem("user") || "{}") ;
 
   ngOnInit(): void {

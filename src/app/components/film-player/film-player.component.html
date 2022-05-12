@@ -23,10 +23,14 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-lg-7 container-iframe">
+        <div class="col-xs-12 col-lg-5 container-iframe">
             <iframe [src]="urlFilm" frameBorder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+                allowfullscreen>
+            </iframe>
+            <div *ngIf="edit==true" class="edit">
+                <a routerLink="/edit-film/{{selectedFilm.id_film}}" routerLinkActive="active">Edit Film</a>
+            </div>
         </div>
     </div>
 

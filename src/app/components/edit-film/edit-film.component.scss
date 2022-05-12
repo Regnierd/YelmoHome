@@ -1,0 +1,49 @@
+.container-fluid{
+    background: white;
+    margin-top: 83px;
+
+    .row{ 
+        
+        
+        .column{
+            display: flex;
+            justify-content: center;
+            
+            
+            .profile{
+                width: 500px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 30px;
+                
+                .title-profile{
+                    margin-bottom: 25px;
+                }
+
+                .label{
+                    font-size: 18px;
+                    font-weight: 600;
+                }
+                .button{
+                    display: flex;
+                    justify-content: center;
+                    .btn{
+                        background: rgb(230, 54, 54) !important;
+                        border: 1px solid rgb(230, 54, 54) !important;
+                        color: white !important;
+                        font-weight: 600;
+                        width: 200px;
+                        
+                    }
+                    .btn:hover{
+                        background: rgb(255, 83, 83) !important;
+                        border: 1px solid rgb(255, 83, 83) !important;
+                    }
+                }
+                
+            }
+            
+        }
+    }
+}
