@@ -19,7 +19,7 @@ export class EditFilmComponent implements OnInit {
   id:number = 0;
   ngOnInit(): void {
     if(localStorage.getItem("user") == null){
-      this.router.navigate(['/login']);  
+      this.router.navigate(['/login']).then();  
     }
     
   }
@@ -84,7 +84,18 @@ export class EditFilmComponent implements OnInit {
       })
     }
 
-    this.router.navigate(['/player-film/'+this.selectedFilm.id_film]);
+    this.router.navigate(['/player-film/'+this.selectedFilm.id_film]).then(() => {window.location.reload()});
+  }
+
+  deleteFilm(id_film:number){
+    this.connectionServerService.deleteFilm(id_film).subscribe((datos:any) => {
+      if(datos["resultado"] == "OK"){
+        alert(datos["menssage"]);
+      }
+      
+    })
+    
+    this.router.navigate(['/home']).then(() => {window.location.reload()});
   }
 
 

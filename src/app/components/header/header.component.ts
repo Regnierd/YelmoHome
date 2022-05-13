@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { faCircleUser } from '@fortawesome/free-regular-svg-icons';
 import { faUser, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -9,6 +10,7 @@ import { faUser, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-ico
 })
 export class HeaderComponent implements OnInit {
   faUser = faUser;
+  faCircleUser = faCircleUser;
   faArrowRightFromBracket = faArrowRightFromBracket;
   constructor(private router: Router) { }
 

@@ -68,25 +68,32 @@ export class ConnectionServerService {
         this.router.navigate(['/home']);  
       }
 
-      if(this.user != null) {
-          localStorage.setItem("user", JSON.stringify(this.user));
-         
+      if(this.user != null && this.user.name_user != "") {
+          localStorage.setItem("user", JSON.stringify(this.user));  
       }
 
     });
     
   }
 
-  register(name_user:string, password: string, email:string, fileName:string){
-    return this.httpClient.post(`${this.url}insertControllerUser.php`, JSON.stringify({"name_user":name_user, "password": password, "email":email, "fileName":fileName}));
+  register(name_user:string, password: string, email:string){
+    return this.httpClient.post(`${this.url}insertControllerUser.php`, JSON.stringify({"name_user":name_user, "password": password, "email":email}));
   }
 
-  update(id_user:number, name_user:string, password:string, email:string, fileName:string){
-    return this.httpClient.post(`${this.url}updateControllerUser.php`, JSON.stringify({"id_user":id_user, "name_user":name_user, "password": password, "email":email, "fileName":fileName}));
+  update(id_user:number, name_user:string, password:string, email:string){
+    return this.httpClient.post(`${this.url}updateControllerUser.php`, JSON.stringify({"id_user":id_user, "name_user":name_user, "password": password, "email":email}));
   }
 
   updateFilm(id_film:number,title:string, author:string, description:string, rating:number, img:string, premiere:string, video:string){
     return this.httpClient.post(`${this.url}updateControllerFilm.php`, JSON.stringify({"id_film":id_film, "title":title, "author": author, "description":description, "rating":rating, "img":img, "premiere":premiere, "video":video}));
+  }
+
+  deleteUser(id_user:number){
+    return this.httpClient.post(`${this.url}deleteControllerUser.php`, JSON.stringify({"id_user": id_user}));
+  }
+
+  deleteFilm(id_film:number){
+    return this.httpClient.post(`${this.url}deleteControllerFilm.php`, JSON.stringify({"id_film": id_film}));
   }
 
   /**

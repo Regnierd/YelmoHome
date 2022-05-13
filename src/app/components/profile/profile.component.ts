@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  update(name_user:string, password:string, email:string, fileName:string){
+  update(name_user:string, password:string, email:string){
     if(name_user == ""){
       name_user = this.userLogged.name_user;
     }
@@ -34,7 +34,7 @@ export class ProfileComponent implements OnInit {
     }
 
     if(this.userLogged){
-      this.connectionServerService.update(this.userLogged.id_user, name_user, password, email, fileName).subscribe((datos:any) => {
+      this.connectionServerService.update(this.userLogged.id_user, name_user, password, email).subscribe((datos:any) => {
         this.userLogged.name_user = datos["name_user"];
         this.userLogged.password = datos["password"];
         this.userLogged.email = datos["email"];
@@ -42,9 +42,29 @@ export class ProfileComponent implements OnInit {
       })
     }
     
-    
-    
     this.router.navigate(['/home']);
   }
+
+  deleteUser(id_user:number){
+    this.connectionServerService.deleteUser(id_user).subscribe((datos:any) => {    
+      console.log(datos);
+      if(datos["resultado"] == "OK"){
+        alert(datos["menssage"]);
+        
+      }
+    }) 
+    this.closeSession();
+  }
+
+  /**
+   * Funcion que elimina la sesión del usuario y redirige al login
+   */
+   closeSession(){
+    if(localStorage!=null){
+      localStorage.removeItem("user");
+    }
+    this.router.navigate(['/login']);
+  }
+
 
 }

@@ -9,7 +9,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" routerLink="/home" routerLinkActive="active"> Home</a>
                 </li>
@@ -23,8 +23,11 @@
                     <a class="avatar">
                         <span class="profile-link">
                             <div class="btn-group">
-                                <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img class="profile-icon" src="../../../assets/avatar.png" alt="">
+                                <button type="button" class="dropdown-toggle d-flex justify-content-center align-items-center" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="social-media">
+                                        <fa-icon class="social-icon" [icon]="faCircleUser"></fa-icon>
+                                    </div>
+                                    
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                   <li><button class="dropdown-item" type="button"><fa-icon class="icon-navbar" [icon]="faUser"></fa-icon><span routerLink="/profile" routerLinkActive="active">Profile</span> </button></li>

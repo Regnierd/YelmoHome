@@ -36,6 +36,11 @@ nav:hover {
     border: none;
 
 }
+.social-media .social-icon{   
+    background: transparent;
+    font-size: 25px;
+    margin-left: 15px;
+}
 
 .dropdown-menu {
     margin-top: 15px;
@@ -52,7 +57,7 @@ nav:hover {
             color: white;
             margin-left: 15px;
             padding: 5px;
-            width: 100px;
+            width: 100px;      
 
             .icon-navbar {
                 margin-right: 10px;

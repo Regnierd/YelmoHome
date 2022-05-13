@@ -23,14 +23,14 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  register(name_user:string, password:string, email:string, fileName:string){
-    this.connectionServerService.register(name_user, password, email, fileName).subscribe((datos:any) => {
+  register(name_user:string, password:string, email:string){
+    this.connectionServerService.register(name_user, password, email).subscribe((datos:any) => {
       
       if(datos["resultado"] == "OK"){
-        alert(datos["menssage"]);//placeholder
+        alert(datos["menssage"]);
       }
       if(datos["resultado"] == "NO"){
-        alert(datos["menssage"]);//placeholder
+        alert(datos["menssage"]);
       }
       
     }) 

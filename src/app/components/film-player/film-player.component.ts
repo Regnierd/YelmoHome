@@ -26,12 +26,13 @@ export class FilmPlayerComponent implements OnInit {
     if(localStorage.getItem("user") == null){
       this.router.navigate(['/login']);  
     }
+    
   }
 
   //Metodo que detecta cambios en la funcion que se llama.
   ngDoCheck(): void{
     this.getPelicula();
-
+  
     if(this.admin.name_user == "admin"){
       this.edit = true;
     }
@@ -48,6 +49,7 @@ export class FilmPlayerComponent implements OnInit {
         this.selectedFilm = film;
         this.urlFilm = this.domSanitizer.bypassSecurityTrustResourceUrl(this.selectedFilm.video);
       });
+      
   }
 
 

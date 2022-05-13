@@ -11,9 +11,9 @@
 <div class="container-fluid">
     <div class="row" *ngFor="let category of categories">
         <div class="col-lg-3 mt-4 mb-3 ms-4 text-light">
-            <h4>{{category.name_category}}</h4>
+            <h3>{{category.name_category}}</h3>
         </div>
-        <div id="{{category.name_category}}" class="carousel slide" data-bs-touch="false"
+        <div id="{{category.name_category}}" class="carousel slide mb-5" data-bs-touch="false"
             data-bs-interval="false">
             <div class="carousel-inner carouselTamanioCard">
                 <div class="carousel-item active">
