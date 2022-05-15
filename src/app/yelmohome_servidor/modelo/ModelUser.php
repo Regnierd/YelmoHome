@@ -8,7 +8,9 @@
     class ModelUser{
 
         /**
-         * Hacer la conexion
+         * Función para hacer la conexion a la bd
+         * 
+         * @param string $sql sentencia sql
          */
         public static function conection($sql){
             [$host,$user,$passwd,$bd]=['localhost','yelmohomeUser','admin1234','yelmohome'];
@@ -24,10 +26,14 @@
         }
 
         /**
-         * Insertar 
+         * Funcion que inserta un usuario a la bd
+         * 
+         * @param string $name del usuario
+         * @param string $pass del usuario
+         * @param string $email del usuario
          */
-        public static function insert($name, $pass, $email, $fileName){
-            $sql = "insert into users (id_user, name_user, password, email, fileName) value (null, '$name', '$pass', '$email', '$fileName')";
+        public static function insert($name, $pass, $email){
+            $sql = "insert into users (id_user, name_user, password, email) value (null, '$name', '$pass', '$email')";
             $result = self::conection($sql);
             if ($result==null) {
                 exit("Error en consulta: $sql");
@@ -35,9 +41,9 @@
         }
 
         /**
-         * eliminar de la bbdd
+         * Funcion que elimina de la bd un usuario
          *
-         * @param  mixed $id_user
+         * @param  mixed $id_user del usuario
          * @return void
          */
         public static function delete($id_user){
@@ -47,12 +53,13 @@
             if ($result==null) {
                 exit("Error en consulta: $sql");
             }
+
         }
 
         /**
-         * funcion para mostrar Datos de un Usuario
+         * funcion para mostrar datos de un Usuario por su id
          *
-         * @param  mixed $codigo
+         * @param  mixed $id_user del usuario
          * @return void
          */
         public static function showUser($id_user){
@@ -64,7 +71,7 @@
         }
 
         /**
-         * Funcion que edita un usuario de la bbdd
+         * Funcion que edita un usuario de la bd
          *
          * @param  mixed $id_user
          * @param  mixed $name
@@ -72,8 +79,8 @@
          * @param  mixed $email
          * @return void
          */
-        public static function update($id_user, $name, $pass, $email, $fileName){
-            $sql = "update users set name_user = '$name', password = '$pass', email = '$email', fileName = '$fileName' where id_user = $id_user;";
+        public static function update($id_user, $name, $pass, $email){
+            $sql = "update users set name_user = '$name', password = '$pass', email = '$email' where id_user = $id_user;";
             $result = self::conection($sql);
 
             if ($result==null) {

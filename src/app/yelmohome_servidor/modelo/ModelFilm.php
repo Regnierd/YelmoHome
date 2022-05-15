@@ -7,7 +7,7 @@
     class ModelFilm{
 
         /**
-         * Hacer la conexion
+         * Funcion para hacer la conexion a la bd
          */
         public static function conection($sql){
             [$host,$user,$passwd,$bd]=['localhost','yelmohomeUser','admin1234','yelmohome'];
@@ -22,35 +22,40 @@
             }
         }
         /**
-         * eliminar de la bbdd
-         *
-         * @param  mixed $id_film
+         * Funcion para eliminar de la bd una pelicula por su id
+         * Primero eliminamos de la bd en la tabla category_films, porque tiene FK
+         * que apunta a la tabla films, luego podemos eliminar de la tabla films
+         * @param  mixed $id_film de la peli
          * @return void
          */
         public static function delete($id_film){
-            $sql = "delete from films where id_film = $id_film";
+            $sql = "delete from category_films where id_film = $id_film";
             $result = self::conection($sql);
-
+            $sqlDelete = "delete from films where id_film = $id_film";
+            $resultDelete = self::conection($sqlDelete);
             if ($result==null) {
                 exit("Error en consulta: $sql");
+            }
+            if ($resultDelete==null) {
+                exit("Error en consulta: $sqlDelete");
             }
         }
 
         /**
-         * editar un producto de la bbdd
+         * Funcion para editar una pelicula de la bd
          *
-         * @param  mixed $id_film
-         * @param  mixed $title
-         * @param  mixed $author
-         * @param  mixed $description
-         * @param  mixed $rating
-         * @param  mixed $img
-         * @param  mixed $premiere
-         * @param  mixed $video
+         * @param  mixed $id_film de la pelicula
+         * @param  string $title de la pelicula
+         * @param  string $author de la pelicula
+         * @param  string $description de la pelicula
+         * @param  int $rating de la pelicula
+         * @param  string $img de la pelicula
+         * @param  string $premiere de la pelicula
+         * @param  string $video de la pelicula
          * @return void
          */
         public static function update($id_film, $title, $author, $description, $rating, $img, $premiere, $video){
-            $sql = "update films set id_film = '$id_film', title = '$title', author = '$author', description = '$description', rating = $rating, img = '$img', premiere = '$premiere', video = '$video' where id_film = $id_film;";
+            $sql = "update films set title = '$title', author = '$author', description = '$description', rating = $rating, img = '$img', premiere = '$premiere', video = '$video' where id_film = $id_film;";
             $result = self::conection($sql);
 
             if ($result==null) {
@@ -59,9 +64,9 @@
         }
 
         /**
-         * funcino para mostrar Datos de una peli
+         * Funcion para mostrar los datos de una pelicula
          *
-         * @param  mixed $codigo
+         * @param  mixed $id_film de la pelicula
          * @return void
          */
         public static function showFilm($id_film){
@@ -73,7 +78,7 @@
         }
 
         /**
-         * funcion para mostrar el Listado de todos las pelis
+         * funcion para mostrar todo el listado de todas las peliculas
          *
          * @return void
          */
@@ -105,15 +110,13 @@
         }
 
         /**
-         * Mostrar todas las peliculas que pertenecen a una categoria en concreto
-         * @param  mixed $id_category
+         * Funcion que muestra todas las peliculas que pertenecen a una categoria en concreto
+         * @param  mixed $id_category de la categoria
          * @return array
          */
         public static function showAllFilmsACategory($id_category){
             /*
             * SELECT PARA SACAR TODAS LAS PELICULAS QUE PERTENECEN A UNA CATEGORIA EN CONCRETO
-            *
-            * select films.title, category.category from films inner join category_films on films.id_film = category_films.id_film inner join category on category_films.id_category = category.id_category where category_films.id_category = $id_category;
             */
             $sql = "select films.*, category.category from films inner join category_films on films.id_film = category_films.id_film inner join category on category_films.id_category = category.id_category where category_films.id_category = $id_category;";
             $result = self::conection($sql);
@@ -127,15 +130,13 @@
         }
 
         /**
-         * Mostrar todas las categorias que pertenecen a una pelicula en concreto.
+         * Funcion que muestra todas las categorias que pertenecen a una pelicula en concreto.
          * @param mixed $title
          * @return array
          */
         public static function showCategoriesForAFilm($title){
             /**
             * SELECT PARA SACAR TODAS LAS CATEGORIAS DE UNA PELICULA EN CONCRETO
-            * 
-            * select films.title, category.category from films inner join category_films on films.id_film = category_films.id_film inner join category on category_films.id_category = category.id_category where films.title = "Al filo del mañana";
             */
             $sql = "select films.title, category.category from films inner join category_films on films.id_film = category_films.id_film inner join category on category_films.id_category = category.id_category where films.title = '$title';";
             $result = self::conection($sql);

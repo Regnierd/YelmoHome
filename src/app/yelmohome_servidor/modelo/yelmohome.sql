@@ -12,7 +12,6 @@ CREATE TABLE users(
     name_user varchar (50) not null,
     password varchar(255) not null,
     email varchar(100) not null,
-    fileName varchar(255) COLLATE utf8_unicode_ci not null,
     PRIMARY KEY (id_user),
     UNIQUE KEY name_user (name_user),
     UNIQUE KEY email (email)
@@ -49,6 +48,9 @@ CREATE TABLE category_films(
     FOREIGN KEY (id_category) REFERENCES category (id_category),
     FOREIGN KEY (id_film) REFERENCES films (id_film)
 )ENGINE = InnoDB;
+
+-- INSERT USER --
+/*INSERT INTO users values (null, "admin", "admin", "admin@gmail.com", "");*/
 
 -- INSERT FILMS --
 INSERT INTO films values (null, "Al filo del mañana", "Doug Liman", "Se sitúa en un futuro cercano, en el marco de una invasión extraterrestre a nuestro planeta, cuyo objetivo es destruir a la especie humana.", 12, "https://images-ext-1.discordapp.net/external/GerSF84z4EGoWVtITg2OjcRsTU9vkohu-7VijpD69jw/https/pics.filmaffinity.com/Al_filo_del_ma_ana-737445435-large.jpg", "2014-05-30", "https://www.youtube.com/embed/Qd0_qYIhMZA");

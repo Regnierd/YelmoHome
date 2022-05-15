@@ -1,6 +1,9 @@
 <?php 
     namespace Yelmohome_servidor\modelo;
 
+    /**
+     * Clase film//Enviamos el mensaje al cliente.
+    */
     class Film{
         private $id_film;
         private $title;
