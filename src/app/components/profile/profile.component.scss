@@ -1,21 +1,20 @@
 .container-fluid{
-    background: white;
-    height: 100vh;
+    background: white; 
     margin-top: 83px;
-
+    height: 70vh;
     .row{ 
-        height: 100vh;
+        
         
         .column{
             display: flex;
-            justify-content: center;
+            margin: auto;
             
             
             .profile{
                 width: 500px;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                margin: auto;
                 padding: 30px;
                 
                 .title-profile{
@@ -37,6 +36,7 @@
                         width: 200px;
                         
                     }
+
                     .btn:hover{
                         background: rgb(255, 83, 83) !important;
                         border: 1px solid rgb(255, 83, 83) !important;
@@ -44,7 +44,65 @@
                 }
                 
             }
+
+            
             
         }
     }
+}
+
+
+// xxs - super extra small devices (portrait phones)
+@media (min-width: 0px) and (max-width: 359.98px) {
+    .button{
+        display: flex;
+        flex-direction: column;
+        
+        button{
+            width: 100% !important;
+        }
+
+        .btn{
+            margin-top:10px;
+        }
+    }
+    
+}
+
+// xs - extra small devices (portrait phones)
+@media (min-width: 360px) and (max-width: 575.98px) {
+    .button{
+        display: flex;
+        flex-direction: column;
+        
+        button{
+            width: 100% !important;
+        }
+
+        .btn{
+            margin-top:10px;
+        }
+    }
+
+}
+
+// sm - small devices (landscape phones)
+@media (min-width: 576px) and (max-width: 767.98px) {
+    
+
+}
+
+// md - medium devices (tablets)
+@media (min-width: 768px) and (max-width: 991.98px) {
+    
+
+}
+
+// lg - large devices (desktops)
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    
+
+}
+@media (min-width:1200px){
+    
 }

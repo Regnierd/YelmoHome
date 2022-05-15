@@ -4,7 +4,7 @@
     <div class="carousel-inner tamanioCarousel">
         <div class="carousel-item" *ngFor="let category of categories | slice:0:3;let index = index;let isFirst = first"
             [ngClass]="{active:isFirst}">
-            <img src="{{category.films[0].img}}" class="d-block w-100 imagenTamanio" alt="...">
+            <img src="{{category.films[0].img}}" class="d-block imagenTamanio" alt="...">
         </div>
     </div>
 </div>
@@ -19,9 +19,9 @@
                 <div class="carousel-item active">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-lg-2 card-film" *ngFor="let film of category.films | slice:0:6;">
+                            <div class="col-sm-4 col-md-4 col-lg-4 col-xl-2 col-xs-1 mb-md-2 mb-2" *ngFor="let film of category.films | slice:0:6;">
                                 <div class="card border-0 bg-transparent">
-                                    <img src="{{film.img}}" alt="" class="card-img-top" height="180px" width="210px">
+                                    <img src="{{film.img}}" alt="" class="card-img-top">
                                     <div class="icon-play" routerLink="/player-film/{{film.id_film}}" routerLinkActive="active">
                                         <a class="social-icon" ><fa-icon [icon]="faPlayCircle"></fa-icon></a>
                                     </div>
@@ -34,9 +34,12 @@
                 <div class="carousel-item">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-lg-2" *ngFor="let film of category.films | slice:6:12;">
+                            <div class="col-md-4 col-lg-4 col-xl-2 col-xs-1  mb-md-2 mb-2" *ngFor="let film of category.films | slice:6:12;">
                                 <div class="card border-0 bg-transparent">
-                                    <img src="{{film.img}}" alt="" class="card-img-top" height="180px" width="210px">
+                                    <img src="{{film.img}}" alt="" class="card-img-top" >
+                                    <div class="icon-play" routerLink="/player-film/{{film.id_film}}" routerLinkActive="active">
+                                        <a class="social-icon" ><fa-icon [icon]="faPlayCircle"></fa-icon></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

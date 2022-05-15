@@ -1,14 +1,14 @@
 
 .tamanioCarousel{
-    height: 800px;
+    height: 100vh;
 }
 
 .imagenTamanio{
-    height: 800px;
+    height: 100vh;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-   
+    width: 100%;
 }
 
 
@@ -20,24 +20,23 @@
 
 .slider-izquierda{
     width: 70px;
-    height: 180px;
-    
+    height: 190px;
 }
 
 .slider-derecha{
     width: 70px;
-    height: 180px;
+    height: 190px;
     
 }
 
 .slider-izquierda:hover{
-    background-image: linear-gradient(to right, #121314, transparent);
+    background-image: linear-gradient(to right, #000000, rgba(0, 0, 0, 0.137));
     opacity: 0.6;
-    
+
 }
 
 .slider-derecha:hover{
-    background-image: linear-gradient(to right, transparent, #121314);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.137), #000000);
     opacity: 0.6;
     
 }
@@ -54,6 +53,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .card-img-top{
+        height:180px;
+        width:250px;
+    }
+
     .icon-play{
         position: absolute;
         display: none;
@@ -84,4 +89,155 @@
     
 }
 
+// xxs - super extra small devices (portrait phones)
+@media (min-width: 0px) and (max-width: 359.98px) {
+    .carouselTamanioCard{
+        height: 1100px;
+        
+        .card-img-top{
+            width: 210px;
+            height: 180px;
+        }
+    }
 
+    .slider-izquierda{
+        width: 70px;
+        height: 100vh;
+        margin-top: 10px;
+    }
+    
+    .slider-derecha{
+        width: 70px;
+        height: 100vh;
+        margin-top: 10px;
+    }
+    
+}
+
+// xs - extra small devices (portrait phones)
+@media (min-width: 360px) and (max-width: 575.98px) {
+    .carouselTamanioCard{
+        height: 1100px;
+        
+        .card-img-top{
+            width: 210px;
+            height: 180px;
+        }
+    }
+
+    .slider-izquierda{
+        width: 70px;
+        height: 100vh;
+        margin-top: 10px;
+    }
+    
+    .slider-derecha{
+        width: 70px;
+        height: 100vh;
+        margin-top: 10px;
+    }
+
+}
+
+// sm - small devices (landscape phones)
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .carouselTamanioCard{
+        height: 400px;
+        
+        .card-img-top{
+            width: 210px;
+            height: 180px;
+        }
+    }
+
+    .slider-izquierda{
+        width: 70px;
+        height: 100vh;
+        margin-top: 10px;
+    }
+    
+    .slider-derecha{
+        width: 70px;
+        height: 100vh;
+        margin-top: 10px;
+    }
+
+}
+
+// md - medium devices (tablets)
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .carouselTamanioCard{
+        height: 400px;
+        display: flex;
+        align-items: center;
+
+        .card-img-top{
+            width: 210px;
+            height: 180px;
+        }
+    }
+    .slider-izquierda{
+        width: 70px;
+        height: 370px;
+        margin-top: 10px;
+
+        .icon-prev{            
+            margin-top: 170px;
+            
+        }
+        
+    }
+    
+    .slider-derecha{
+        width: 70px;
+        height: 370px;
+        margin-top: 10px;
+
+        .icon-next{            
+            margin-top: 170px;
+            
+        }
+    }
+    
+
+}
+
+// lg - large devices (desktops)
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .carouselTamanioCard{
+        height: 400px;
+        display: flex;
+        align-items: center;
+
+        .card-img-top{
+            width: 210px;
+            height: 180px;
+        }
+    }
+    .slider-izquierda{
+        width: 70px;
+        height: 370px;
+        margin-top: 10px;
+
+        .icon-prev{            
+            margin-top: 170px;
+            
+        }
+        
+    }
+    
+    .slider-derecha{
+        width: 70px;
+        height: 370px;
+        margin-top: 10px;
+
+        .icon-next{            
+            margin-top: 170px;
+            
+        }
+    }
+
+}
+@media (min-width:1200px){
+    
+}

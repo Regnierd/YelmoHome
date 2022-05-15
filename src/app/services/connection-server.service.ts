@@ -13,6 +13,11 @@ import { Router } from '@angular/router';
 })
 export class ConnectionServerService {
   
+  /**
+   * Contructor del servicio que llama a la funcion que trae todas las peliculas del servidor
+   * @param httpClient 
+   * @param router 
+   */
   constructor(private httpClient: HttpClient, private router: Router) {
     this.getFilms();
   }
@@ -23,9 +28,12 @@ export class ConnectionServerService {
   filmsArray: Film[] = [];
   user: User = new User();
   
-
+  //URL estatica del servidor
   url = "http://localhost/PHP/yelmohome_servidor/controlador/";
   
+  /**
+   * Funcion para obtener todas las peliculas separadas por sus categorias
+   */
   getFilms() {
     this.httpClient.get<[]>(`${this.url}mostrarVistaControlador.php`).subscribe(datos => {
      datos.forEach(element => {
@@ -47,6 +55,12 @@ export class ConnectionServerService {
 
   }
 
+  /**
+   * Funcion que comprueba si el usuario existe, si existe se loguea, si no existe envia un mensaje
+   * @param name_user 
+   * @param password 
+   * @returns 
+   */
   login(name_user: string, password: string) {
     return this.httpClient.post(`${this.url}loginControllerUser.php`, JSON.stringify({ "name_user": name_user, "password": password }))
     .subscribe((datos:any) => {

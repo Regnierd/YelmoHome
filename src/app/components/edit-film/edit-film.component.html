@@ -1,40 +1,39 @@
 <app-header></app-header>
 <div class="container-fluid">
     <div class="row">
-        <div class="col column">
+        <div class="col-12 col-lg-6 column">
             <div class="profile">
                 <h2 class="title-profile">{{selectedFilm.title}}</h2>
                 <div class="border mb-4"></div>
                 <div class="container-profile">
                     <form action="" method="post" class="sign-form"> 
                         <div class="form-group mb-3">
-                            <label for="name" class="label">Titulo</label>
-                            <input type="text" class="form-control" name="name" placeholder="{{selectedFilm.title}}" #title>
+                            <label for="title" class="label">Titulo</label>
+                            <input type="text" class="form-control" name="title" placeholder="{{selectedFilm.title}}" #title>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="name" class="label">Autor</label>
-                            <input type="text" class="form-control" name="name" placeholder="{{selectedFilm.author}}" #author>
+                            <label for="author" class="label">Autor</label>
+                            <input type="text" class="form-control" name="author" placeholder="{{selectedFilm.author}}" #author>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="name" class="label">Descripción</label><br>
-                            <textarea name="" id="" cols="42" rows="8" #description>{{selectedFilm.description}}</textarea>
-                            <!-- <input type="text" class="form-control" name="password" placeholder="{{selectedFilm.description}}" #description> -->
+                            <label for="description" class="label">Descripción</label><br>
+                            <textarea name="description" id="description" cols="42" rows="8" #description>{{selectedFilm.description}}</textarea>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="name" class="label">Edad</label>
-                            <input type="number" class="form-control" name="email" placeholder="{{selectedFilm.rating}}" #rating>
+                            <label for="age" class="label">Edad</label>
+                            <input type="number" class="form-control" name="age" placeholder="{{selectedFilm.rating}}" #rating>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="avatar" class="label">Poster</label>
-                            <input type="text" class="form-control input-avatar" placeholder="{{selectedFilm.img}}" #img>
+                            <label for="img" class="label">Poster</label>
+                            <input type="text" class="form-control" name="img" placeholder="{{selectedFilm.img}}" #img>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="avatar" class="label">Estreno</label>
-                            <input type="text" class="form-control input-avatar" placeholder="{{selectedFilm.premiere}}" #premiere>
+                            <label for="premiere" class="label">Estreno</label>
+                            <input type="text" class="form-control" name="premiere" placeholder="{{selectedFilm.premiere}}" #premiere>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="avatar" class="label">Video</label>
-                            <input type="text" class="form-control input-avatar" placeholder="{{selectedFilm.video}}" #video>
+                            <label for="video" class="label">Video</label>
+                            <input type="text" class="form-control" name="video" placeholder="{{selectedFilm.video}}" #video>
                         </div>
                         <div class="form-group button mb-3 py-2">
                             <button (click)="deleteFilm(selectedFilm.id_film)" class="form-control btn-outline-danger rounded submit px-3 w-50" type="submit" name="delete">Borrar película</button>                               
