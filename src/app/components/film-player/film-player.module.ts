@@ -4,7 +4,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { FilmPlayerComponent } from './film-player.component';
 import { HeaderModule } from '../header/header.module';
 import { FooterModule } from '../footer/footer.module';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [FilmPlayerComponent],
@@ -12,7 +12,8 @@ import { FooterModule } from '../footer/footer.module';
     CommonModule,
     AppRoutingModule,
     HeaderModule,
-    FooterModule
+    FooterModule,
+    FontAwesomeModule
   ],
   exports:[FilmPlayerComponent]
 })

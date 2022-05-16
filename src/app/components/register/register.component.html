@@ -8,22 +8,22 @@
                 <div class="wrap d-md-flex">
                     <div class="img"></div>
                     <div class="login-wrap p-4 p-md-5">
-                        <h2 class="w-100 mb-4 text-light">Sign Up</h2>
-                        <form action="" method="post" class="sign-form">
+                        <h2 class="w-100 mb-4 text-light">Registrate</h2>
+                        <form method="post" id="form" class="sign-form">
                             <div class="form-group mb-3">
-                                <label for="name" class="label">Username</label>
-                                <input type="text" class="form-control" name="name" placeholder="Username" required #name>
+                                <label for="name" class="label">Nombre de usuario</label>
+                                <input type="text" pattern="[A-Za-z]{3,15}" title="Nombre de 3 letras como mínimo" autocomplete="off" class="form-control" id="name" name="name" placeholder="Usuario" required #name>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="name" class="label">Password</label>
-                                <input type="password" class="form-control" name="password" placeholder="Password" required #password>
+                                <label for="name" class="label">Contraseña</label>
+                                <input type="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe de contener como mínimo 1 número, 1 letra mayúscula y letras minúsculas, con un total de 8 carácteres o más" autocomplete="off" class="form-control" name="password" placeholder="Contraseña" required #password>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="name" class="label">Email</label>
-                                <input type="email" class="form-control" name="email" placeholder="Email" required #email>
+                                <label for="name" class="label">Correo electrónico</label>
+                                <input type="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="example@example.domain" autocomplete="off" class="form-control" name="email" placeholder="Correo electrónico" required #email>
                             </div> 
                             <div class="form-group mb-3 py-2">                               
-                                <button (click)="register(name.value, password.value, email.value)" class="form-control btn btn-primary rounded submit px-3" type="submit" name="registrar">Sign Up</button>
+                                <button type="button" class="form-control btn btn-primary rounded px-3" (click)="register(name.value, password.value, email.value)">Registrar</button>
                             </div>
                         </form>
                         <div class="border border-secondary"></div>

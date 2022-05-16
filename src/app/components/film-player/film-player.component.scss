@@ -1,13 +1,8 @@
 .contenedor {
     margin-top: 100px;
 
-    .container-info-film{
-        margin-bottom: 270px;
-        
-    }
-
     .container-iframe{
-        margin-top: 20px;
+        padding: 20px 30px;
         iframe {
             width: 100%;
             height: 50vh;
@@ -16,7 +11,7 @@
         .edit{
             margin-top: 20px;
             display: flex;
-            justify-content: end;
+            justify-content: start;
             
             font-size: 20px;
             font-weight: 600;
@@ -32,11 +27,10 @@
     
 
     .card { 
-        margin: auto;
+        width: 100%;
         font-size: medium;
      
         .card-body {
-            padding: 20px;
 
             .card-title {
                 margin-top: 15px;
@@ -125,8 +119,8 @@
             .card-img-top {
                 display: flex;
                 margin: auto;
-                width: 80% !important;
-                height: 60vh;
+                width: 100%;
+                height: 300px;
             }
         }
         
@@ -155,8 +149,8 @@
             .card-img-top {
                 display: flex;
                 margin: auto;
-                width: 80% !important;
-                height: 60vh;
+                width: 100%;
+                height: 350px;
             }
         }
         
@@ -174,30 +168,27 @@
 
 // lg - large devices (desktops)
 @media (min-width: 992px) and (max-width: 1199.98px) {
-    .card{
-        width: 500px !important;
-        height: 700px !important;
-        .card-body{
-            .card-img-top {
-                width: 450px !important;
-                height: 430px !important;
-            }
-        }
+    .container-info-film{
+        margin-bottom: 50px !important;
         
     }
 
 }
 
 @media (min-width:1200px){
-    .card{
-        width: 500px !important;
-        height: 700px !important;
-        .card-body{
-            .card-img-top {
-                width: 450px !important;
-                height: 430px !important;
+    .container-info-film{
+        margin: auto;
+        margin-bottom: 50px !important;
+        .card{
+            width: 600px !important;
+            margin: auto;  
+            .card-body{
+                .card-img-top {      
+                    height: 430px !important;
+                }
             }
+            
         }
-        
     }
+    
 }

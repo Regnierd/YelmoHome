@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Category } from 'src/app/data/category';
 import { Film } from 'src/app/data/pelicula';
 import { User } from 'src/app/data/user';
 import { ConnectionServerService } from 'src/app/services/connection-server.service';
-
+import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-film-player',
@@ -16,6 +15,7 @@ export class FilmPlayerComponent implements OnInit {
 
   constructor(public connectionServerService:ConnectionServerService, private route: ActivatedRoute, private domSanitizer: DomSanitizer, private router: Router) { }
 
+  faPenToSquare = faPenToSquare;
   selectedFilm: Film = this.connectionServerService.selectedFilm;
   urlFilm: SafeResourceUrl = this.domSanitizer.bypassSecurityTrustResourceUrl("");
   admin: User = JSON.parse(localStorage.getItem("user") || "{}") ;

@@ -2,7 +2,7 @@
 
 <div class="container-fluid contenedor" *ngIf="selectedFilm">
     <div class="row">
-        <div class="col-xs-12 col-lg-5 container-info-film">
+        <div class="col-xs-12 col-lg-6 container-info-film">
             <div class="card bg-transparent text-light border-0">
                 <div class="card-body">
                     <img src="{{selectedFilm.img}}" class="card-img-top" />
@@ -23,13 +23,13 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-lg-5 container-iframe">
+        <div class="col-xs-12 col-lg-6 container-iframe">
             <iframe [src]="urlFilm" frameBorder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
             </iframe>
             <div *ngIf="edit==true" class="edit">
-                <a routerLink="/edit-film/{{selectedFilm.id_film}}" routerLinkActive="active">Edit Film</a>
+                <a routerLink="/edit-film/{{selectedFilm.id_film}}" routerLinkActive="active"><fa-icon [icon]="faPenToSquare" class="me-2"></fa-icon>Edit Film</a>
             </div>
         </div>
     </div>

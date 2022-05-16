@@ -8,23 +8,23 @@
                 <div class="wrap d-md-flex">
                     <div class="img"></div>
                     <div class="login-wrap p-4 p-md-5">
-                        <h2 class="w-100 mb-4 text-light">Log In</h2>
+                        <h2 class="w-100 mb-4 text-light">Inicia sesión</h2>
                         <div class="sign-form">
                             <div class="form-group mb-3">
-                                <label for="name" class="label">Username</label>
-                                <input type="text" class="form-control" name="userName" placeholder="Username" required #name>
+                                <label for="name" class="label">Nombre de usuario</label>
+                                <input type="text" class="form-control" name="userName" placeholder="Usuario" required #name>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="name" class="label">Password</label>
-                                <input type="password" class="form-control" name="pass" placeholder="Password" required #pass>
+                                <label for="name" class="label">Contraseña</label>
+                                <input type="password" class="form-control" name="pass" placeholder="Contraseña" required #pass>
                             </div>
                             <div class="form-group mb-3">                               
-                                <button (click)="login(name.value, pass.value)" class="form-control btn btn-primary rounded submit px-3" name="login" type="submit">Log In</button>
+                                <button (click)="login(name.value, pass.value)" class="form-control btn btn-primary rounded submit px-3" name="login" type="submit">Iniciar sesión</button>
                             </div>
                         </div>
                         <p class="text-center">
-                            Not a member?
-                            <a routerLink="/register" routerLinkActive="active" class="active">Sign Up</a>
+                            ¿No eres miembro?
+                            <a routerLink="/register" routerLinkActive="active" class="active">Registrate!</a>
                         </p>
                         <div class="border border-secondary"></div>
                         <div class="social-media d-flex justify-content-center mt-3">
