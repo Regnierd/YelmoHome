@@ -2,9 +2,6 @@
 
     namespace Yelmohome_servidor\modelo;
 
-    /**
-     * Clase user
-     */
     class User{
         private $id_user;
         private $name;

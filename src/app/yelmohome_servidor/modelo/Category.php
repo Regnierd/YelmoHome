@@ -1,9 +1,6 @@
 <?php 
     namespace Yelmohome_servidor\modelo;
-    
-    /**
-     * Clase categoria
-     */
+
     class Category{
         public $category;
         public $films = [];
