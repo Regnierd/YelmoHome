@@ -22,20 +22,31 @@ export class RegisterComponent implements OnInit {
   faInstagram = faInstagram;
 
   ngOnInit(): void {
+    //Si el usuario existe en el localStorage redirige al home
     if(localStorage.getItem("user") != null){
       this.router.navigate(['/home']);  
     }
   }
 
-  
+  /**
+   * Método que llama a la función del servicio register para 
+   * registrar al usuario
+   * @param name_user del usuario nuevo
+   * @param password del usuario nuevo
+   * @param email del usuario nuevo
+   */
   register(name_user:string, password:string, email:string){
+    //Obtenemos el formulario
     let form = document.getElementById("form") as HTMLFormElement;
 
+    //Verificamos si los datos están correctamente escritos como se piden en los patterns
     if(form.reportValidity()){
+      //Enviamos los datos del nuevo usuario a la bd y devolvemos un mensaje.
       this.connectionServerService.register(name_user, password, email).subscribe((datos:any) => {
       
         if(datos["resultado"] == "OK"){
           alert(datos["menssage"]);
+          //Redirigimos a /login
           this.router.navigate(['/login']);
         }
         if(datos["resultado"] == "NO"){
@@ -44,11 +55,7 @@ export class RegisterComponent implements OnInit {
         
       }) 
     }
-    
-         
       
-   
-  }
-  
+  }  
 
 }

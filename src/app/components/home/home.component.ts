@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   categories: Category[] = this.connectionServerService.category;
   
   ngOnInit(): void {
+    //Si el usuario no existe en el localStorage redirige al login
     if(localStorage.getItem("user") == null){
       this.router.navigate(['/login']);  
     }

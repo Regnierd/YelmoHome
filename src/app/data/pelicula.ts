@@ -1,3 +1,6 @@
+/**
+ * Clase película
+ */
 export class Film{
     id_film: number;
     title: string;

@@ -23,6 +23,7 @@ export class FilmPlayerComponent implements OnInit {
   edit:boolean = false;
   
   ngOnInit(): void {
+    //Si el usuario no existe en el localStorage redirige al login
     if(localStorage.getItem("user") == null){
       this.router.navigate(['/login']);  
     }
@@ -40,7 +41,11 @@ export class FilmPlayerComponent implements OnInit {
   }
 
   /**
-   * Metodo que llama a la funcion getPelicula del servicio
+   * Metodo que llama a la funcion getPelicula del servicio.
+   * Obtiene la id de la pelicula que seleccionamos y cambia 
+   * el valor de la variable selectedFilm.
+   * Además obtiene la url del video y prevenimos los errores de seguridad
+   * de Cross Site Scripting para que sea seguro de usar en el DOM
    */
    getPelicula(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));

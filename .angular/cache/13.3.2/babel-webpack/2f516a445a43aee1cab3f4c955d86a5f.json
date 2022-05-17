@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Category {\n  constructor() {\n    this.name_category = \"\";\n    this.films = [];\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

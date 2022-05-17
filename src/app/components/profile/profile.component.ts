@@ -17,12 +17,20 @@ export class ProfileComponent implements OnInit {
   userLogged: User = JSON.parse(localStorage.getItem("user") || "{}") ;
 
   ngOnInit(): void {
+    //Si el usuario no existe en el localStorage redirige al login
     if(localStorage.getItem("user") == null){
       this.router.navigate(['/login']);  
     }
   }
 
-  update(name_user:string, password:string, email:string){
+  /**
+   * Método que llama a la función del servicio update para actualizar
+   * los datos del usuario logueado
+   * @param name_user del usuario
+   * @param password del usuario
+   * @param email del usuario
+   */
+  updateUser(name_user:string, password:string, email:string){
     if(name_user == ""){
       name_user = this.userLogged.name_user;
     }
@@ -34,17 +42,20 @@ export class ProfileComponent implements OnInit {
     }
 
     if(this.userLogged){
-      this.connectionServerService.update(this.userLogged.id_user, name_user, password, email).subscribe((datos:any) => {
-        this.userLogged.name_user = datos["name_user"];
-        this.userLogged.password = datos["password"];
-        this.userLogged.email = datos["email"];
-        localStorage.setItem("user", JSON.stringify(this.userLogged));
-      })
+      //Enviamos los datos nuevos a la bd y los recibimos actualizados
+      this.connectionServerService.updateUser(this.userLogged.id_user, name_user, password, email);
+      
     }
-    
-    this.router.navigate(['/home']);
+
+    //Una vez actualizados los datos del usuario actualizamos la web para ver los cambios
+    this.router.navigate(['/home']).then(() => {window.location.reload()});
   }
 
+  /**
+   * Método que llama a la función del servicio deleteUser para eliminar
+   * el usuario logueado y llamamos a la función closeSession()
+   * @param id_user del usuario
+   */
   deleteUser(id_user:number){
     this.connectionServerService.deleteUser(id_user).subscribe((datos:any) => {    
       console.log(datos);

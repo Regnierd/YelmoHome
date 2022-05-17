@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 export class ConnectionServerService {
   
   /**
-   * Contructor del servicio que llama a la funcion que trae todas las peliculas del servidor
+   * Contructor del servicio que llama a la Función que trae todas las películas del servidor
    * @param httpClient 
    * @param router 
    */
@@ -32,7 +32,7 @@ export class ConnectionServerService {
   url = "http://localhost/PHP/yelmohome_servidor/controlador/";
   
   /**
-   * Funcion para obtener todas las peliculas separadas por sus categorias
+   * Función para obtener todas las películas separadas por sus categorias
    */
   getFilms() {
     this.httpClient.get<[]>(`${this.url}mostrarVistaControlador.php`).subscribe(datos => {
@@ -56,9 +56,9 @@ export class ConnectionServerService {
   }
 
   /**
-   * Funcion que comprueba si el usuario existe, si existe se loguea, si no existe envia un mensaje
-   * @param name_user 
-   * @param password 
+   * Función que comprueba si el usuario existe, si existe se loguea, si no existe envia un mensaje
+   * @param name_user del usuario
+   * @param password del usuario
    * @returns 
    */
   login(name_user: string, password: string) {
@@ -78,7 +78,6 @@ export class ConnectionServerService {
         this.user.password = password;
         this.user.email = email;
         this.user.fileName = fileName;
-        console.log(this.user);
         this.router.navigate(['/home']);  
       }
 
@@ -90,38 +89,82 @@ export class ConnectionServerService {
     
   }
 
+  /**
+   * Función que registra un usuario nuevo en la bd 
+   * @param name_user del usuario
+   * @param password del usuario
+   * @param email del usuario
+   * @returns mensaje
+   */
   register(name_user:string, password: string, email:string){
     return this.httpClient.post(`${this.url}insertControllerUser.php`, JSON.stringify({"name_user":name_user, "password": password, "email":email}));
   }
 
-  update(id_user:number, name_user:string, password:string, email:string){
-    return this.httpClient.post(`${this.url}updateControllerUser.php`, JSON.stringify({"id_user":id_user, "name_user":name_user, "password": password, "email":email}));
+  /**
+   * Función que actualiza el usuario logueado en el servidor y devuelve los datos actualizados
+   * @param id_user del usuario actualizado
+   * @param name_user del usuario actualizado
+   * @param password del usuario actualizado
+   * @param email del usuario actualizado
+   * @returns user
+   */
+  updateUser(id_user:number, name_user:string, password:string, email:string){
+    return this.httpClient.post(`${this.url}updateControllerUser.php`, JSON.stringify({"id_user":id_user, "name_user":name_user, "password": password, "email":email}))
+    .subscribe((datos:any) => {
+        this.user.name_user = datos["name_user"];
+        this.user.password = datos["password"];
+        this.user.email = datos["email"];
+
+        localStorage.setItem("user", JSON.stringify(this.user));
+    });  
   }
 
+  /**
+   * Función que actualiza una película en el servidor y devuelve la película actualizada
+   * @param id_film de la película
+   * @param title de la película
+   * @param author de la película
+   * @param description de la película
+   * @param rating de la película
+   * @param img de la película
+   * @param premiere de la película
+   * @param video de la película
+   * @returns film
+   */
   updateFilm(id_film:number,title:string, author:string, description:string, rating:number, img:string, premiere:string, video:string){
     return this.httpClient.post(`${this.url}updateControllerFilm.php`, JSON.stringify({"id_film":id_film, "title":title, "author": author, "description":description, "rating":rating, "img":img, "premiere":premiere, "video":video}));
   }
 
+  /**
+   * Función que elimina un usuario de la bd 
+   * @param id_user del usuario
+   * @returns mensaje
+   */
   deleteUser(id_user:number){
     return this.httpClient.post(`${this.url}deleteControllerUser.php`, JSON.stringify({"id_user": id_user}));
   }
 
+  /**
+   * Funcion que elimina una película de la bd
+   * @param id_film de la película
+   * @returns mensaje
+   */
   deleteFilm(id_film:number){
     return this.httpClient.post(`${this.url}deleteControllerFilm.php`, JSON.stringify({"id_film": id_film}));
   }
 
   /**
-   * Funcion que obtiene la pelicula por la id de la pelicula seleccionada
-   * @param id de la pelicula
-   * @returns pelicula
+   * Función que obtiene la película por la id de la película seleccionada
+   * @param id de la película
+   * @returns película
    */
    getPelicula(id: number): Observable<Film> {
     
-    const pelicula = this.filmsArray.find(h => h.id_film == id);
-    if(pelicula == undefined){
+    const película = this.filmsArray.find(h => h.id_film == id);
+    if(película == undefined){
       return new Observable<Film>();
     }
-    return of(pelicula);
+    return of(película);
   }
 
 

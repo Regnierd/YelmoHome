@@ -24,12 +24,18 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //Si el usuario existe en el localStorage redirige al home
     if(localStorage.getItem("user") != null){
       this.router.navigate(['/home']);  
     }
   }
   
 
+  /**
+   * Método que llama al a función login del servicio
+   * @param name_user del usuario
+   * @param password del usuario
+   */
   login(name_user: string, password: string) {
     this.connectionServerService.login(name_user, password);
       

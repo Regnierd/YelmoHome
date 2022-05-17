@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
 
   navbarfixed:boolean = false;
 
+  //Evento de scroll para activar las clases del header
   @HostListener('window:scroll', ['$event']) onScroll(){
     if(window.scrollY > 50){
       this.navbarfixed = true;

@@ -1,3 +1,6 @@
+/**
+ * Clase usuario
+ */
 export class User{
     id_user: number;
     name_user: string;

@@ -13,11 +13,12 @@ export class EditFilmComponent implements OnInit {
   
   constructor(public connectionServerService:ConnectionServerService, private route: ActivatedRoute, private router: Router) { }
 
+  
   selectedFilm: Film = this.connectionServerService.selectedFilm;
-  
-  
   id:number = 0;
+
   ngOnInit(): void {
+    //Si el usuario no existe en el localStorage redirige al login
     if(localStorage.getItem("user") == null){
       this.router.navigate(['/login']).then();  
     }
@@ -28,7 +29,9 @@ export class EditFilmComponent implements OnInit {
 
   }
   /**
-   * Metodo que llama a la funcion getPelicula del servicio
+   * Metodo que llama a la funcion getPelicula del servicio.
+   * Obtiene la id de la pelicula que seleccionamos y cambia 
+   * el valor de la variable selectedFilm.
    */
    getPelicula(): void {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
@@ -38,7 +41,17 @@ export class EditFilmComponent implements OnInit {
       });
   }
 
-
+  /**
+   * Método que llama a la función del servicio para actualizar la película,
+   * procesa primero los datos y luego los envía.
+   * @param title de la película
+   * @param author de la película
+   * @param description de la película
+   * @param rating de la película
+   * @param img de la película
+   * @param premiere de la película
+   * @param video de la película
+   */
   updateFilm(title:string, author:string, description:string, rating:string, img:string, premiere:string, video:string){
     let ratingParsed:any;
 
@@ -71,6 +84,7 @@ export class EditFilmComponent implements OnInit {
       video = this.selectedFilm.video;
     }
 
+    //Enviamos los datos nuevos y a la vez los recibimos
     if(this.selectedFilm){
       this.connectionServerService.updateFilm(this.selectedFilm.id_film, title, author, description, ratingParsed, img, premiere, video).subscribe((datos:any) => {
         this.selectedFilm.title = datos["title"];
@@ -84,9 +98,15 @@ export class EditFilmComponent implements OnInit {
       })
     }
 
+    //Después de actualizar los datos y recibir los nuevos datos, 
+    //redirige a /player-film y actualizamos la web para ver los cambios
     this.router.navigate(['/player-film/'+this.selectedFilm.id_film]).then(() => {window.location.reload()});
   }
 
+  /**
+   * Método que llama a la función del servicio para eliminar la película
+   * @param id_film de la película
+   */
   deleteFilm(id_film:number){
     this.connectionServerService.deleteFilm(id_film).subscribe((datos:any) => {
       if(datos["resultado"] == "OK"){
@@ -95,6 +115,8 @@ export class EditFilmComponent implements OnInit {
       
     })
     
+    //Una vez eliminada de la bd y devuelve el mensaje redirigimos a /home 
+    //y actualizamos la web para ver los cambios
     this.router.navigate(['/home']).then(() => {window.location.reload()});
   }
 
