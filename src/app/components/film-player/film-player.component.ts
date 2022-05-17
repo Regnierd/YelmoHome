@@ -34,7 +34,7 @@ export class FilmPlayerComponent implements OnInit {
   ngDoCheck(): void{
     this.getPelicula();
   
-    if(this.admin.name_user == "admin"){
+    if(this.admin.name_user == "admin" || this.admin.name_user == "Admin"){
       this.edit = true;
     }
     
