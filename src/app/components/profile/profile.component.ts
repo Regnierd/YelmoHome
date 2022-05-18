@@ -31,6 +31,9 @@ export class ProfileComponent implements OnInit {
    * @param email del usuario
    */
   updateUser(name_user: string, password: string, email: string) {
+    //Obtenemos el formulario
+    let form = document.getElementById("form") as HTMLFormElement;
+
     if (name_user == "") {
       name_user = this.userLogged.name_user;
     }
@@ -42,7 +45,7 @@ export class ProfileComponent implements OnInit {
     }
 
 
-    if (this.userLogged) {
+    if (this.userLogged && form.reportValidity()) {
       //Enviamos los datos nuevos a la bd y los recibimos actualizado 
       this.connectionServerService.updateUser(this.userLogged.id_user, name_user, password, email).subscribe((datos: any) => {
         this.userLogged.name_user = datos["name_user"];

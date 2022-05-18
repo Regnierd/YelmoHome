@@ -12,11 +12,11 @@
                         <div class="sign-form">
                             <div class="form-group mb-3">
                                 <label for="name" class="label">Nombre de usuario</label>
-                                <input type="text" class="form-control" name="userName" placeholder="Usuario" required #name>
+                                <input type="text" class="form-control" name="userName" placeholder="Usuario" autocomplete="off" required #name>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="name" class="label">Contraseña</label>
-                                <input type="password" class="form-control" name="pass" placeholder="Contraseña" required #pass>
+                                <input type="password" class="form-control" name="pass" placeholder="Contraseña" autocomplete="off" required #pass>
                             </div>
                             <div class="form-group mb-3">                               
                                 <button (click)="login(name.value, pass.value)" class="form-control btn btn-primary rounded submit px-3" name="login" type="submit">Iniciar sesión</button>
