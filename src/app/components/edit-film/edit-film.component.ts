@@ -94,7 +94,7 @@ export class EditFilmComponent implements OnInit {
         this.selectedFilm.img = datos["img"];
         this.selectedFilm.premiere = datos["premiere"];
         this.selectedFilm.video = datos["video"];
-        
+     
       })
     }
 

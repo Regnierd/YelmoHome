@@ -9,14 +9,16 @@ import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
 
-  {path: '', redirectTo:"/login", pathMatch: "full"},
   /*{path: '**', redirectTo:"/login", pathMatch: "full"},*/
   {path:'login', component: LoginComponent},
   {path:'register', component: RegisterComponent},
   {path:'home', component:HomeComponent},
   {path:'profile', component:ProfileComponent},
   {path:'player-film/:id', component:FilmPlayerComponent},
-  {path:'edit-film/:id', component:EditFilmComponent}
+  {path:'edit-film/:id', component:EditFilmComponent},
+
+  {path: '', redirectTo:"/login", pathMatch: "full"},
+  {path: '*', redirectTo:"/login", pathMatch: "full"},
 ];
 
 @NgModule({

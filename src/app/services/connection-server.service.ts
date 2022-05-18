@@ -70,14 +70,12 @@ export class ConnectionServerService {
         let id = datos["id_user"];
         let name_user = datos["name_user"];
         let password = datos["password"];
-        let email = datos["email"];
-        let fileName = datos["fileName"];
+        let email = datos["email"];    
 
         this.user.id_user = id;
         this.user.name_user = name_user;
         this.user.password = password;
         this.user.email = email;
-        this.user.fileName = fileName;
         this.router.navigate(['/home']);  
       }
 
@@ -109,14 +107,7 @@ export class ConnectionServerService {
    * @returns user
    */
   updateUser(id_user:number, name_user:string, password:string, email:string){
-    return this.httpClient.post(`${this.url}updateControllerUser.php`, JSON.stringify({"id_user":id_user, "name_user":name_user, "password": password, "email":email}))
-    .subscribe((datos:any) => {
-        this.user.name_user = datos["name_user"];
-        this.user.password = datos["password"];
-        this.user.email = datos["email"];
-
-        localStorage.setItem("user", JSON.stringify(this.user));
-    });  
+    return this.httpClient.post(`${this.url}updateControllerUser.php`, JSON.stringify({"id_user":id_user, "name_user":name_user, "password": password, "email":email}));
   }
 
   /**

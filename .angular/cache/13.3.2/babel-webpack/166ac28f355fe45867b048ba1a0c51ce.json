@@ -1,0 +1,1 @@
+{"ast":null,"code":"/**\n * Clase película\n */\nexport class Film {\n  constructor() {\n    this.id_film = 0;\n    this.title = \"\";\n    this.author = \"\";\n    this.description = \"\";\n    this.rating = 0;\n    this.img = \"\";\n    this.premiere = \"\";\n    this.video = \"\";\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

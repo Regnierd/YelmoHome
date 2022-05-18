@@ -1,0 +1,1 @@
+{"ast":null,"code":"/**\n * Clase category que contiene el nombre de la categoria\n * y el array de las películas que pertenecen a esa categoria\n */\nexport class Category {\n  constructor() {\n    this.name_category = \"\";\n    this.films = [];\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}
